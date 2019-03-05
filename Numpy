@@ -61,26 +61,26 @@ A=[[3,4,5]
 　　[6,7,8]
 　　[9,10,11]]
 A[2] = [9,10,11]
-　　　A[2][1]=10
-　　　A[2,1]=10
+A[2][1]=10
+A[2,1]=10
 A[2,:]=[9,10,11]
-　　　A[2,1:2]=[10]
+A[2,1:2]=[10]
 　　　
-　　　Array merge
-　　　Np.vstack((a,b))//上下合并
-　　　Np.hstack((a,b))//左右
+#Array merge
+Np.vstack((a,b))//上下合并
+Np.hstack((a,b))//左右
 　　　
-　　　One-dim a = [2,2,3] -> a.reshape(3,1) ->[[2],
-　　　[2],	
-　　　[3]]
-分割
+One-dim a = [2,2,3] -> a.reshape(3,1) ->[[2],
+　　　					[2],	
+　　　					[3]]
+#Divide
 a = np.range(12).reshape(3,4)
 Np.split(a,2,axis=1)//列方向,需均分
 Np.array_split(a,3,axis=1);//不用均分
 Np.vsplit(a,3)
 Np.hsplit(a,2)
 
-Copy
+#Copy
 B=a      //指向同一个地方
 B=a.copy()//deep copy 只是copy的数值
 
@@ -168,11 +168,44 @@ df3=pd.DataFrame(np.ones((3,4))*2,columns=['A','B','C','D'])
 res = pd.concat([df1,df2，df3],axis=0)
 print(res)
 res = pd.concat([df1,df2，df3],axis=0,ignore_index=True)
-print()
-print()
-print()
-print()
-print()
+#join,['inner','outer']
+df1=pd.DataFrame(np.ones((3,4))*0,columns=['A','B','C','D'],index=[1,2,3])
+df2=pd.DataFrame(np.ones((3,4))*1,columns=['b','c','d','e'],index=[2,3,4])
+res = pd.concat([df1,df2],join='outer')#column derection;same index merge(上下),noll->nan
+print(res)
+res = pd.concat([df1,df2],join='outer')#column derection;drop index(not same),merge same index
+print(res)
+res = pd.concat([df1,df2],join='outer',ignore_index=True)
+print(res)
+#join_axes:column according to  
+res = pd.concat([df1,df2],axis=1,join_axes=[df1.index])# left,right merge 
+print(res)
+#delete join_axes
+res = pd.concat([df1,df2],axis=1)
+print(res)
+#append
+s1 = pd.Series(s1,ignore_index=True)
+
+#Merge
+#merging two df by key/keys
+left = pd.DataFram({'key':['K0','K1','K2','K3'],
+		    'A':['A0','A1','A2','A3'],
+		    'B':['B0','B1','B2','B3'],})
+right= pd.DataFram({'key':['K0','K1','K2','K3'],
+		    'C':['c0','c1','c2','c3'],
+		    'D':['d0','d1','d2','d3'],})
+#one key
+res = pd.merge(left,right,on='key')#column
+print(res)
+# two keys
+left = pd.DataFram({'key1':['K0','K0','K1','K2'],
+		    'key2':['K0','K1','K0','K1'],
+		    'A':['A0','A1','A2','A3'],
+		    'B':['B0','B1','B2','B3'],})
+right= pd.DataFram({'key1':['K0','K1','K1','K2'],
+		    'key2':['K0','K0','K0','K0'],
+		    'C':['c0','c1','c2','c3'],
+		    'D':['d0','d1','d2','d3'],})
 print()
 print()
 print()
