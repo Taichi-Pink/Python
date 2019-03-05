@@ -23,4 +23,14 @@ np.arange(12).reshape((3,4))   >>> [ [0,1,2,3]
             			     [4,5,6,7]
                                      [8,9,10,11]]
 线段
-a = np.linspace(1,10,5)
+a = np.linspace(1,10,5) 生成从1到10的5条线段
+
+运算
+c = a -/+ b
+c = b**4 4次方
+c = np.sin(a)/cos/tan
+
+b = np.arange(4) [0,1,2,3]
+print(b<3)
+>>>[1 1 1 0]
+
