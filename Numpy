@@ -22,6 +22,8 @@ np.arange(10,20，2) start,end,step >>> [10,12,14,16,18,20]
 np.arange(12).reshape((3,4))   >>> [ [0,1,2,3]
             			     [4,5,6,7]
                                      [8,9,10,11]]
+np.arange(2,14) [2,3,4....13]
+
 线段
 a = np.linspace(1,10,5) 生成从1到10的5条线段
 
@@ -33,4 +35,183 @@ c = np.sin(a)/cos/tan
 b = np.arange(4) [0,1,2,3]
 print(b<3)
 >>>[1 1 1 0]
+
+乘法
+逐个相乘 c = a*b
+矩阵乘法 np.dot(a,b)/a.dot(b)
+
+a = np.random.random((2,4))[0,1]间数值 2 row 4cloums
+np.sum/min/max(a) sum all
+np.sum(a,axis = 1/0) sum colums/rows direction
+np.argmin(a) index of minimum 
+
+np.mean(a)/a.mean/np.average(a)
+np.median(a) 中位数
+np.cumsum(a)累加
+
+np.sort(a) 逐行排序
+np.transpose()/a.T
+
+Index
+One-dim
+A=[3,4,5,6]
+A[2] = 5
+Two-dim
+A=[[3,4,5]
+　　[6,7,8]
+　　[9,10,11]]
+A[2] = [9,10,11]
+　　　A[2][1]=10
+　　　A[2,1]=10
+A[2,:]=[9,10,11]
+　　　A[2,1:2]=[10]
+　　　
+　　　Array merge
+　　　Np.vstack((a,b))//上下合并
+　　　Np.hstack((a,b))//左右
+　　　
+　　　One-dim a = [2,2,3] -> a.reshape(3,1) ->[[2],
+　　　[2],	
+　　　[3]]
+分割
+a = np.range(12).reshape(3,4)
+Np.split(a,2,axis=1)//列方向,需均分
+Np.array_split(a,3,axis=1);//不用均分
+Np.vsplit(a,3)
+Np.hsplit(a,2)
+
+Copy
+B=a      //指向同一个地方
+B=a.copy()//deep copy 只是copy的数值
+
+Pandas
+import pandas as pd
+import numpy  as np
+s = pd.Series([1,3,6,np.nan,44,1])
+print(s)
+dates = pd.date_range('20160101',periods=6)#date type
+print(dates)
+df = pd.DataFrame(np.random.randn(6,4),index=dates,colums=['a','b','c','d'])
+print(df) #不给index就默认
+df2 = pd.DataFrame({'A':1.,
+			'B':pd.Timestamp('20130102'),
+			'C':pd.Series(1,index=list(range(4)),dtype='float32'),
+			'D':np.array([3]*4,dtype='int32'),
+			'E':pd.Categorical(["test","train","test","train"]),
+			'F':'foo'})
+print(df2)
+print(df2.dtypes)
+print(df2.index)#序号
+print(df2.columns)
+print(df2.values)
+print(df2.describe())#只能描述数据
+print(df2.sort_index(axis=1,ascending=False))
+print(df2.sort_index(axis=0,ascending=False))
+print(df2.sort_values(by='E'))#sort by value of column 'E'
+
+Select DATA
+dates = pd.date_range('20130101',periods=6)
+df = pd.DataFrame(np.arange(24).reshape((6,4)),index=dates,columns=['A','B','C','D'])
+print(df['A'],df.A)
+print(df[0:3],df['20130102':'20130104'])
+#select by label
+print(df.loc['20130102'])
+print(df.loc[:,['A','B']])
+print(df.loc['20130102',['A','B']])
+#select by position
+print(df.iloc[3])
+print(df.iloc[3,1])
+print(df.iloc[3:5,1:3])
+print(df.iloc[[1,3,5]],1:3)
+#mixed select:ix
+print(df.ix[:3,['A','C']])
+#Boolean indexing
+print(df[df.A>8])
+
+设置值
+df.iloc[3,1] = 111
+print(df)
+df.loc['20130101','B']
+print(df)
+df[df.A>4]=0 #operate on all columns
+print(df)
+df.A[df.A>4]=0 #operate on one column A
+print(df) 
+df.B[df.A>4]=0 #operate on one column B
+print(df)
+df['F'] = np.nan
+print(df)
+df['E'] = pd.Series([1,2,3,4,5,6],index=pd.date_range('20130101',periods=6))
+print(df)
+
+Handle loss data
+dates = pd.date_range('20130101',periods=6)
+df = pd.DataFrame(np.arange(24).reshape((6,4)),index=dates,columns=['A','B','C','D'])
+df.iloc[0,1] = np.nan
+df.iloc[1,2] = np.nan
+print(df.dropna(axis=0,how='any'))#how = {'any','all'} any:if have one nan,drop all:only all #elements are nan,drop
+print(df.fillna(value=0))
+print(df.isnull())
+#if matrex is too large
+print(np.any(df.isnull())== True)
+
+import /export
+import pandas as pd
+data = pd.read_csv('student.csv')
+print(data)
+data.to_pickle('student.pickle')
+
+Concatenating
+df1=pd.DataFrame(np.ones((3,4))*0,columns=['A','B','C','D'])
+df2=pd.DataFrame(np.ones((3,4))*1,columns=['A','B','C','D'])
+df3=pd.DataFrame(np.ones((3,4))*2,columns=['A','B','C','D'])
+res = pd.concat([df1,df2，df3],axis=0)
+print(res)
+res = pd.concat([df1,df2，df3],axis=0,ignore_index=True)
+print()
+print()
+print()
+print()
+print()
+print()
+print()
+print()
+print()
+print()
+print()
+print()
+print()
+print()
+print()
+print()
+print()
+print()
+print()
+print()
+print()
+print()
+print()
+print()
+print()
+print()
+print()
+print()
+print()
+print()
+print()
+print()
+print()
+print()
+print()
+print()
+print()
+print()
+print()
+print()
+print()
+print()
+print()
+print()
+print()
+print()
 
