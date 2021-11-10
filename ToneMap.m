@@ -71,56 +71,7 @@ for j =1:2
           %imgOut = TumblinTMO(img, 20, 100, 100, 100);
           imgOut = TumblinTMO(img);
           fullFileName0=fullfile(destination, strcat(filename, format));
-          imwrite(imgOut,fullFileName0);
-% ----------------------------------------------------------------------------------------------          
-%           destination = strcat(path,strcat(int2str(i),'/',s,'-Face/SchlickTMO/'));
-%           img_3 = repmat(img,[1,1,3]);
-%           %imgOut = SchlickTMO(img_3, 'automatic', 1, 8, 100, 0);
-%           imgOut = SchlickTMO(img_3);
-%           fullFileName0=fullfile(destination, strcat(filename, format));
-%           imwrite(imgOut,fullFileName0);
-%                 
-%           destination = strcat(path,strcat(int2str(i),'/',s,'-Face/MSHIST/'));
-%           img_3 = repmat(img,[1,1,3]);
-%           imgOut = MSHIST(img_3, 6,10,0.1);
-%           fullFileName0=fullfile(destination, strcat(filename, format));
-%           imwrite(imgOut,fullFileName0);
-
-%           destination = strcat(path,strcat(int2str(i),'/',s,'-Face/GuTMO/'));
-%           imgOut = GuTMO(img);        
-%           fullFileName0=fullfile(destination, strcat(filename, format));
-%           imwrite(imgOut,fullFileName0);
-
-%           destination = strcat(path,strcat(int2str(i),'/',s,'-Face/BestExposureTMO/'));
-%           imgOut = BestExposureTMO(img);
-%           fullFileName0=fullfile(destination, strcat(filename, format));
-%           imwrite(imgOut,fullFileName0);
-% 
-% 
-%           destination = strcat(path,strcat(int2str(i),'/',s,'-Face/ExponentialTMO/'));
-%           %imgOut = ExponentialTMO(img, 1);
-%           imgOut = ExponentialTMO(img);
-%           fullFileName0=fullfile(destination, strcat(filename, format));
-%           imwrite(imgOut,fullFileName0);
-%           
-%           destination = strcat(path,strcat(int2str(i),'/',s,'-Face/KuangTMO/'));
-%           %imgOut =KuangTMO(img, 'calibrated', 0.75, 'average');
-%           img_3 = repmat(img,[1,1,3]);
-%           imgOut =KuangTMO(img_3);
-%           fullFileName0=fullfile(destination, strcat(filename, format));
-%           imwrite(imgOut,fullFileName0);
-%           
-%           destination = strcat(path,strcat(int2str(i),'/',s,'-Face/FerwerdaTMO/'));
-%           %imgOut = FerwerdaTMO(img, 100, 50, 100);
-%           imgOut = FerwerdaTMO(img);
-%           fullFileName0=fullfile(destination, strcat(filename, format));
-%           imwrite(imgOut,fullFileName0);
-%           
-%           destination = strcat(path,strcat(int2str(i),'/',s,'-Face/KrawczykTMO/'));
-%           imgOut = KrawczykTMO(img);
-%           fullFileName0=fullfile(destination, strcat(filename, format));
-%           imwrite(imgOut,fullFileName0);
-%           
+          imwrite(imgOut,fullFileName0);      
          
              
         end
