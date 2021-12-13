@@ -1,5 +1,8 @@
 # WDR Face Database Project
 
+
+
+
 ## Synthetic WDR Database Review
 - Automatic face recognition in HDR imaging(__3. FACE RECOGNITION IN HDR IMAGING__) referred The effect of HDR images on privacy: crowdsourcing evaluation database
 
