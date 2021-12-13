@@ -24,7 +24,7 @@ for i in range(sheet.nrows):
     w = int(sheet.cell_value(i, 3))
     h = int(sheet.cell_value(i, 4))
     #path0 = '/home/ziyi/Documents/test_label/test/Scene'+str(index)+'/Delete/Delete'+str(index)+'_One-Face' + str(coor1) + '.png'
-    # path0 = '/home/ziyi/Documents/test_label/test/Scene' + str(index) + '/Delete/Delete' + str(coor1) + '.png'
+    #path0 = '/home/ziyi/Documents/test_label/test/Scene' + str(index) + '/Delete/Delete' + str(coor1) + '.png'
     imagePath = '/home/ziyi/Documents/test_label/Delete/Delete' + str(coor0) + '.png'
     path0 = '/home/ziyi/Documents/test_label/test/Delete/Delete' + str(coor0) + '.png'
     # if coor == coor1:
